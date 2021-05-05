@@ -27,12 +27,12 @@ h6::before {
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Paid Invoices</h1>
+            <h1>Partially Paid Invoices</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Paid Invoices</li>
+              <li class="breadcrumb-item active">Partially Paid Invoices</li>
             </ol>
           </div>
         </div>
@@ -46,7 +46,7 @@ h6::before {
           <div class="col-12">
            <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Paid Invoices</h3>
+                <h3 class="card-title">Partially Paid Invoices</h3>
               <div>
                 
                  </div>
@@ -64,6 +64,7 @@ h6::before {
                     <th>Memmber</th>
                     <th>Total</th>
                     <th>Paid</th>
+                    <th>Remaining</th>
                     <th>Invoice Date</th>
                     <th>Due Date</th>
                     <th>Created By</th>
@@ -82,19 +83,20 @@ h6::before {
                   <td>{{ member($value->orgUser_id) }}</td>
                   <td>{{ $value->total }}</td>
                   <td>{{ $value->totalPaid }}</td>
+                  <td>{{ $value->total-$value->totalPaid }}</td>
                   <td>{{ dateformate($value->invoiced_at) }}</td>
                   <td>{{ dateformate($value->due_at)}}</td>
                   <td>{{ create_by($value->created_by)}}</td>
                   
                   <td>
-                    @if($value->status== 2)
+                    @if($value->status== 3)
+                    <button type="button" class="btn btn-block btn-outline-primary btn-xs disabled">
+                    Pending
+                  </button> 
+                  @else
                     <button type="button" class="btn btn-block btn-outline-success btn-xs disabled">
                     Paid
-                  </button>
-                  @else
-                  <button type="button" class="btn btn-block btn-outline-success btn-xs disabled">
-                   Not Paid
-                  </button>                  
+                  </button>               
                   @endif
 
                   </td>

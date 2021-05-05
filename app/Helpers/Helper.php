@@ -16,6 +16,20 @@ if (! function_exists('dob')) {
     }
 
 }
+if (! function_exists('dateformate')) {
+    function dateformate($int) {
+        
+       if(!empty($int)){
+            $date= $int;
+            $res=date('F j, Y',$date);
+        }else{
+            $res = '';
+        }
+        return $res;
+    
+    }
+
+}
 
 if (! function_exists('gender')) {
     function gender($id) {
@@ -31,6 +45,40 @@ if (! function_exists('gender')) {
         return $res;
     }
 }
-
-
+if (! function_exists('member')) {
+    function member($orgUser_id) {
+     
+        $data = DB::table('orguser')->where('id',$orgUser_id)->first();
+        if(!empty($data)){
+            $res = $data->fullName;
+        }else{
+            $res = '(not set)';
+        }
+        return $res;
+    }
+}
+if (! function_exists('item')) {
+    function item($orgUserPlan_id) {
+     
+        $data = DB::table('orguserplan')->where('id',$orgUserPlan_id)->first();
+        if(!empty($data)){
+            $res = $data->name;
+        }else{
+            $res = '';
+        }
+        return $res;
+    }
+}
+if (! function_exists('create_by')) {
+    function create_by($create_by) {
+     
+        $data = DB::table('orguser')->where('id',$create_by)->first();
+        if(!empty($data)){
+            $res = $data->fullName;
+        }else{
+            $res = '(not set)';
+        }
+        return $res;
+    }
+}
 ?>

@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Member\MemberController;
-
+use App\Http\Controllers\Invoice\InvoiceController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,9 +24,7 @@ Route::get('theme', function () {
 Route::get('class', function () {
     return view('Classes.open_classes');
 });
-Route::get('invocies', function () {
-    return view('Invocies.paid_invoices');
-});
+
 
 Auth::routes();
 
@@ -36,3 +34,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/all_members', [MemberController::class, 'index']);
 Route::get('/active_members', [MemberController::class, 'active']);
+Route::get('/paid_invoice', [InvoiceController::class, 'index']);
+Route::get('/unpaid_invoice', [InvoiceController::class, 'unpaid']);
+Route::get('/partiallypaid_invoice', [InvoiceController::class, 'partiallypaid']);

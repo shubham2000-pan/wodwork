@@ -85,7 +85,7 @@
           </li>
            <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-circle"></i>
+              <i class="nav-icon fas fa-users-class"></i>
               <p>
                 Classes
                 <i class="fas fa-angle-left right"></i>
@@ -115,7 +115,7 @@
           </li>
              <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-circle"></i>
+              <i class="nav-icon fas fa-file-invoice-dollar"></i>
               <p>
                 Income
                 <i class="fas fa-angle-left right"></i>
@@ -123,19 +123,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ url('#') }}" class="nav-link">
+                <a href="{{ url('paid_invoice') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Paid Invoices</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ url('#') }}" class="nav-link">
+                <a href="{{ url('partiallypaid_invoice') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Partially Paid Invoices</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ url('#') }}" class="nav-link">
+                <a href="{{ url('unpaid_invoice') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>UnPaid Invoices</p>
                 </a>
